@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax</title>
+    <script src="../jquery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="../jquery/ajax/ajax.js" charset="utf-8"></script>
+    <style media="screen">
+      #datos{
+        margin-top:20px;
+        border:2px solid green;
+        width:250px;
+        height:250px;
+        overflow:scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ajax con Jquery</h1>
+    <form id='formulario' action="https://reqres.in/api/users" method="post">
+      <label for="txtNombre">Nombre</label>
+      <input type="text" id="txtNombre" value=""><br>
+      <label for="txtApellido">Apellidos</label>
+      <input type="text" id="txtApellidos" value=""><br>
+      <input type="submit" id="btn" value="Registrar">
+    </form>
+
+    <div id="datos">
+    </div>
+  </body>
+</html>
