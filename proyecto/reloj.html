@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>PROYECTO CON JS</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" id="theme">
+
+  <!-- <link rel="stylesheet" href="css/jquery-ui/jquery-ui.min.css">
+  <link rel="stylesheet" href="css/jquery-ui/jquery-ui.structure.css">
+  <link rel="stylesheet" href="css/jquery-ui/jquery-ui.theme.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+
+  <script src="js/jquery/jquery.min.js" charset="utf-8"></script>
+  <!-- <script src="js/jquery-ui/jquery-ui.min.js" charset="utf-8"></script> -->
+  <script src="js/moment/moment.min.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+  <style media="screen">
+    .map {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="selector-theme">
+    <div id="to-green">
+
+    </div>
+    <div id="to-red">
+
+    </div>
+    <div id="to-blue">
+
+    </div>
+  </div>
+  <section id="global">
+    <header>
+      <div id="logo">
+        <h1>PROYECTO JS</h1>
+      </div>
+      <div class="clearfix"></div>
+      <nav id="menu">
+        <ul>
+          <li><a href="index.html">INICIO</a></li>
+          <li><a href="reloj.html">RELOJ</a></li>
+          <li><a href="about.html">SOBRE MI</a></li>
+          <li><a href="contacto.html">CONTACTO</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Control+Alt+B=Autocorrector -->
+
+    <section id="content">
+      <div id="box">
+        <!-- Cargar acordeon -->
+        <div id="reloj">
+
+        </div>
+        <div id="map" class="map"></div>
+        <select id="layer-select">
+          <option value="Aerial">Aerial</option>
+          <option value="AerialWithLabelsOnDemand" selected>Aerial with labels</option>
+          <option value="RoadOnDemand">Road</option>
+          <option value="CanvasDark">Road dark</option>
+          <option value="OrdnanceSurvey">Ordnance Survey</option>
+        </select>
+      </div>
+      <aside id="sidebar">
+        <div id="about">
+          <h4><span>¿Quien soy?</span></h4>
+          <img src="img/caracol.jpg" alt="">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi metus metus, cursus vel neque et, posuere convallis leo.
+          </p>
+        </div>
+        <div id="login">
+          <h4><span>Identificate</span></h4>
+          <form id="formulario">
+            <label for="txtNombre">Nombre</label>
+            <input type="text" name="txtNombre" id="txtNombre" value="">
+            <label for="txtEmail">Email</label>
+            <input type="email" name="txtApellido" id="txtEmail" value="">
+            <label for="txtPassword">Contraseña</label>
+            <input type="password" name="txtPassword" id="txtPassword" autocomplete="on">
+            <input type="submit" name="btnRegistrar" id="btnRegistrar" value="Registrar">
+          </form>
+        </div>
+      </aside>
+      <div class="clearfix"></div>
+    </section>
+  </section>
+  <footer>
+    <span>MAster en Javascript</span>
+    <a href="#" class="up">Ir a inicio</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+  <script type="text/javascript">
+    // var map = new ol.Map({
+    //   target: 'map',
+    //   layers: [
+    //     new ol.layer.Tile({
+    //       source: new ol.source.OSM()
+    //     })
+    //   ],
+    //   view: new ol.View({
+    //     center: ol.proj.fromLonLat([37.41, 8.82]),
+    //     zoom: 4
+    //   })
+    // });
+
+
+
+    var styles = [
+      'RoadOnDemand',
+      'Aerial',
+      'AerialWithLabelsOnDemand',
+      'CanvasDark',
+      'OrdnanceSurvey'
+    ];
+    var layers = [];
+    var i, ii;
+    for (i = 0, ii = styles.length; i < ii; ++i) {
+      layers.push(new ol.layer.Tile({
+        visible: false,
+        preload: Infinity,
+        source: new ol.source.OSM()
+      }));
+    }
+    var map = new ol.Map({
+      layers: layers,
+      target: 'map',
+      view: new ol.View({
+        center: [-6655.5402445057125, 6709968.258934638],
+        zoom: 13
+      })
+    });
+
+    var select = document.getElementById('layer-select');
+
+    function onChange() {
+      var style = select.value;
+      for (var i = 0, ii = layers.length; i < ii; ++i) {
+        layers[i].setVisible(styles[i] === style);
+      }
+    }
+    select.addEventListener('change', onChange);
+    onChange();
+  </script>
+</body>
+
+</html>
