@@ -20,8 +20,19 @@
     <li *ngIf='zapatilla.stock'>
       <span [ngStyle]="{
         'text-decoration':!zapatilla.stock ? 'line-through':'none'
-      }">{{zapatilla.nombre}} - <strong>{{zapatilla.precio}}</strong></span>
-      <span *ngIf='zapatilla.precio<=200' [style.background]='zapatilla.precio<200? "green":"black"'>¡En oferta!</span>
+      }">{{zapatilla.nombre}} -
+        <strong [class.altoPrecio]='zapatilla.precio<=200'
+                [ngClass]="{
+                  'fondoRojo':zapatilla.precio<=200,
+                  'subrayado':zapatilla.marca=='Nike'
+                }"
+        >
+          {{zapatilla.precio}}
+        </strong>
+      </span>
+      <span *ngIf='zapatilla.precio<=200' [style.background]='zapatilla.precio<200? "green":"black"'
+      [style.color]='zapatilla.precio<200? "black":"white"'
+      >¡En oferta!</span>
     </li>
   </ng-template>
   <!-- <li *ngFor='let zapatilla of zapatillas'>
