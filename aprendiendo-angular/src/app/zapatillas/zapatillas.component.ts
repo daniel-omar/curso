@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core'
+import {Component, OnInit,DoCheck} from '@angular/core'
 import {Zapatilla} from '../models/zapatilla'
 
 @Component({
@@ -27,6 +27,10 @@ export class ZapatillasComponent implements OnInit{
     console.log(this.zapatillas)
     this.getMarcas()
   }
+  // ngDoCheck(){
+  //   console.log(this.zapatillas)
+  //   this.getMarcas()
+  // }
   getMarcas(){
    this.zapatillas.forEach((zapatilla,index)=>{
       if(this.marcas.indexOf(zapatilla.marca)<0)this.marcas.push(zapatilla.marca)
