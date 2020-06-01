@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
@@ -14,11 +15,13 @@ import { CursosComponent } from './cursos/cursos.component'
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     VideojuegoComponent,
     ZapatillasComponent,
     CursosComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule

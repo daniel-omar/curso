@@ -1,1 +1,13 @@
-<p>home works!</p>
+<h2>Pagina principal dsd</h2>
+<div *ngIf='identificado; then siIdentificado  else noIdentificado'>
+
+</div>
+<ng-template #siIdentificado>
+  <h4>Estas identificado en la aplicacion</h4>
+  <button type="button" (click)='unsetIdentificado()'>Cancelar</button>
+</ng-template>
+
+<ng-template #noIdentificado>
+ <p>No estas identiicado</p>
+ <button type="button" (click)='setIdentificado()'>Identificarse</button>
+</ng-template>
