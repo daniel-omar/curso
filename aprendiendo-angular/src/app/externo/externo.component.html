@@ -1,5 +1,38 @@
 
+<h2 class="mt-2">Crear Usuario</h2>
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+  <div class="form-group row">
+    <div class="col-sm-6 mb-1">
+      <label for="txtNombre" class="col-form-label col-form-label-sm">Nombre</label>
+      <input type="text" class="form-control form-control-sm" id="txtNombre"  #name="ngModel"
+      [(ngModel)]="new_user.name"  [ngModelOptions]="{standalone: true}" required pattern="[a-zA-Z]+">
+      <span *ngIf="name.touched && !name.valid">
+        El nombre es obligatorio
+      </span>
+   </div>
+   <div class="col-sm-6 mb-1">
+     <label for="txtJob" class="col-form-label col-form-label-sm">Empleo</label>
+    <input type="text" class="form-control form-control-sm" id="txtJob"  #job="ngModel"
+    [(ngModel)]="new_user.job"  [ngModelOptions]="{standalone: true}" required pattern="[a-zA-Z]+">
+    <span *ngIf="job.touched && !job.valid">
+       El trabajo es obligatorio
+     </span>
+  </div>
+ </div>
+
+ <input type="submit"   value="Guardar Usuario" [disabled]="!newUser.form.valid">
+</form>
+
+<div class="" *ngIf="usuario_guardado">
+  <h3>{{usuario_guardado.name}}</h3>
+  <h3>{{usuario_guardado.job}}</h3>
+</div>
+<br>
+<br>
 <p>{{fecha | date:'dd/MM/yyyy'}}</p>
+<p>{{fecha | date:'fullDate'|uppercase}}</p>
+<p>{{'HOLA MUNDO CON MINUSCULA'|lowercase}}</p>
+<p>{{ 16 | calculadora:2}}</p>
 <hr>
 <input type="text" [(ngModel)]='userId' (keyup.enter)='cargaUsuario()'>
 <div *ngIf='!user'>

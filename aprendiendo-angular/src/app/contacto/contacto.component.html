@@ -1,0 +1,39 @@
+<h2>Contacto</h2>
+<form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)">
+  <div class="form-group row">
+    <div class="col-sm-6 mb-1">
+      <label for="txtNombre" class="col-form-label col-form-label-sm">Nombre</label>
+      <input type="text" class="form-control form-control-sm" id="txtNombre" #nombre="ngModel"
+      [(ngModel)]="usuario.nombre"  [ngModelOptions]="{standalone: true}" required pattern="[a-zA-Z]+">
+      <span *ngIf="nombre.touched && !nombre.valid">
+        El nombre es obligatorio
+      </span>
+   </div>
+   <div class="col-sm-6 mb-1">
+     <label for="txtApellidos" class="col-form-label col-form-label-sm">Apellidos</label>
+    <input type="text" class="form-control form-control-sm" id="txtApellidos" #apellidos="ngModel"
+    [(ngModel)]="usuario.apellidos"  [ngModelOptions]="{standalone: true}" required pattern="[a-zA-Z]+">
+    <span *ngIf="apellidos.touched && !apellidos.valid">
+       Los apellidos son obligatorios
+     </span>
+  </div>
+ </div>
+ <div class="form-group row">
+   <div class="col-sm-12 mb-1">
+     <label for="txtEmail" class="col-form-label">Email</label>
+      <input type="email" class="form-control" id="txtEmail" #email="ngModel" [(ngModel)]="usuario.email"
+      [ngModelOptions]="{standalone: true}" required>
+      <span *ngIf="email.touched && !email.valid">
+        El email es obligatorio
+     </span>
+  </div>
+ </div>
+ <div class="form-group row">
+   <div class="col-sm-12 mb-1">
+     <label for="txtMensaje" class="col-form-label col-form-label-sm">Mensaje</label>
+     <textarea rows="8" cols="80" id="txtMensaje" class="form-control form-control-sm" #mensaje="ngModel" [(ngModel)]="usuario.mensaje"  [ngModelOptions]="{standalone: true}"></textarea>
+  </div>
+
+ </div>
+ <input type="submit"   value="Enviar" [disabled]="!formContacto.form.valid">
+</form>

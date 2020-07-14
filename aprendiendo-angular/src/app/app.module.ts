@@ -15,6 +15,10 @@ import { CursosComponent } from './cursos/cursos.component';
 import { ExternoComponent } from './externo/externo.component'
 
 
+//Importar Pipe
+import {CalculadoraPipe} from './pipes/calculadora.pipe';
+import { ContactoComponent } from './contacto/contacto.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,9 @@ import { ExternoComponent } from './externo/externo.component'
     VideojuegoComponent,
     ZapatillasComponent,
     CursosComponent,
-    ExternoComponent
+    ExternoComponent,
+    CalculadoraPipe,
+    ContactoComponent
   ],
   imports: [
     CommonModule,

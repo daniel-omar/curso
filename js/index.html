@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-  </head>
-  <body>
-      <!-- <h1>Funciones en JS</h1>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="datetimepicker/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="datetimepicker/datetime/css/tempusdominus-bootstrap-4.min.css">
+
+  <script src="datetimepicker/jquery/jquery.min.js" charset="utf-8"></script>
+  <script src="datetimepicker/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="datetimepicker/moment/moment-with-locales.min.js" charset="utf-8"></script>
+  <script src="datetimepicker/datetime/js/tempusdominus-bootstrap-4.min.js" charset="utf-8"></script>
+
+
+</head>
+
+<body>
+  <!-- <h1>Funciones en JS</h1>
       <div id="contenedor">
       </div>
       <br>
@@ -35,37 +45,54 @@
       <div id="datos">
 
       </div> -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlModal">
+    Abrir
+  </button>
 
-      <h1>Añade tu Peliculas</h1>
-      <form id='formulario'>
-        <input type="text" id="txtPelicula">
-        <button type="submit" id="btn">Guardar</button>
-      </form>
-
-      <h1>Borra tu Peliculas</h1>
-      <form id='formularioBorrar'>
-        <input type="text" id="txtPeliculaBorrar">
-        <button type="submit" id="btn2">Guardar</button>
-      </form>
-
-      <h2>Json</h2><br>
-      <div id='pelicula'>
-        <h2>Peliculas</h2>
-        <ul id='listaPeliculas'>
-
-        </ul>
+  <!-- Modal -->
+    <div class="modal fade" id="mdlModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="" id='date'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
       </div>
+    </div>
 
 
 
 
-      <!-- <script src="arrays/ejercicio1.js" charset="utf-8"></script> -->
-      <!-- <script src="bom/archivo.js" charset="utf-8"></script> -->
-      <!-- <script src="eventos/evento.js" charset="utf-8"></script> -->
-      <!-- <script src="eventos/timers.js" charset="utf-8"></script> -->
-      <!-- <script src="Json/archivo.js" charset="utf-8"></script> -->
-      <!-- <script src="localstorage/archivo.js" charset="utf-8"></script> -->
-      <script src="localstorage/ejercicio.js" charset="utf-8"></script>
+  <!-- <script src="arrays/ejercicio1.js" charset="utf-8"></script> -->
+  <!-- <script src="bom/archivo.js" charset="utf-8"></script> -->
+  <!-- <script src="eventos/evento.js" charset="utf-8"></script> -->
+  <!-- <script src="eventos/timers.js" charset="utf-8"></script> -->
+  <!-- <script src="Json/archivo.js" charset="utf-8"></script> -->
+  <!-- <script src="localstorage/archivo.js" charset="utf-8"></script> -->
+  <!-- <script src="localstorage/ejercicio.js" charset="utf-8"></script> -->
+  <script type="text/javascript">
+    $("#date").datetimepicker({
+      inline: true,
+      sideBySide: true
+    })
+  </script>
+</body>
 
-  </body>
 </html>
